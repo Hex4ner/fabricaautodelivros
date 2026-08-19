@@ -1,0 +1,68 @@
+# Hosts que a tarefa de verificacao precisa alcancar
+#
+# Motivo: a §1 do CLAUDE.md exige que o texto no idioma original seja RECUPERADO
+# (nunca reconstruido de memoria) e que a coluna "Fonte recuperada (URL)" guarde o
+# endereco de onde a prova foi de fato aberta. Sem alcancar estes hosts, nenhuma
+# linha pode receber selo PRIMARIA ou CONTEMPORANEA sem mentir.
+#
+# Status medido em 2026-08-19 nesta sessao remota: TODOS bloqueados pelo proxy de
+# egresso (EGRESS_BLOCKED). Apenas hosts de desenvolvimento (ex.: pypi.org) passam.
+
+# --- repositorios de texto primario (§5, "Repositorios que costumam resolver") ---
+perseus.tufts.edu
+www.perseus.tufts.edu
+topostext.org
+www.loebclassics.com
+corpusthomisticum.org
+penelope.uchicago.edu
+el.wikisource.org
+www.gutenberg.org
+archive.org
+babel.hathitrust.org
+catalog.hathitrust.org
+gallica.bnf.fr
+
+# --- arquivos dedicados a autor (nivel N2) ---
+founders.archives.gov
+www.darwinproject.ac.uk
+einsteinpapers.press.princeton.edu
+www.newtonproject.ox.ac.uk
+www.marktwainproject.org
+hansard.parliament.uk
+api.parliament.uk
+quod.lib.umich.edu            # Collected Works of Abraham Lincoln
+www.teslasociety.com
+teslauniverse.com
+www.museogalileo.it
+brunelleschi.imss.fi.it       # Edizione Nazionale, Galileu
+www.leonardodigitale.com      # codices de Leonardo, e-Leo
+www.bl.uk
+cudl.lib.cam.ac.uk
+digi.vatlib.it
+www.etana.org                 # textos cuneiformes (Hamurabi)
+cdli.mpiwg-berlin.mpg.de      # Cuneiform Digital Library Initiative
+avalon.law.yale.edu
+
+# --- datacao de primeira aparicao e deteccao de apocrifa (§5) ---
+quoteinvestigator.com
+en.wikiquote.org
+de.wikiquote.org
+fr.wikiquote.org
+en.wikisource.org
+
+# --- literatura critica, para a regra dos dois olhos ---
+www.jstor.org
+www.ncbi.nlm.nih.gov
+pubmed.ncbi.nlm.nih.gov
+doi.org
+www.cambridge.org
+academic.oup.com
+www.oxfordreference.com
+books.google.com
+www.google.com
+
+# --- enciclopedico, so como pista (nunca prova) ---
+en.wikipedia.org
+pt.wikipedia.org
+plato.stanford.edu
+www.britannica.com
