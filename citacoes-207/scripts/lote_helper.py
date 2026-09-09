@@ -46,6 +46,32 @@ class Planilha:
         self.cit.append([str(num), nome, str(ordem), "(vaga aberta)", None, None, None,
                          None, None, None, None, "Não", None, None, None, dominio, HOJE, obs])
 
+    def preencher(self, num, ordem, corpo, rodape="", original="", idioma="",
+                  obra="", locus="", edicao="", selo="", podio="Sim", nivel="",
+                  url="", conf="", obs=""):
+        """Fecha uma vaga aberta que ja existe na planilha.
+
+        Acrescentar linha aqui criaria duplicidade de (Nº, Ordem), que a trava
+        reprova, e deixaria a vaga orfa. A vaga e o lugar reservado: fechar e
+        escrever sobre ela, no mesmo endereco.
+        """
+        alvo_num, alvo_ord = str(num).strip(), str(ordem).strip()
+        for row in self.cit.iter_rows(min_row=2):
+            if str(row[0].value).strip() == alvo_num and str(row[2].value).strip() == alvo_ord:
+                if not str(row[3].value or "").startswith("(vaga"):
+                    raise SystemExit(
+                        f"FALHA: {num}/{ordem} nao e vaga aberta (CORPO: {row[3].value!r}). "
+                        "Linha de autor ja fechado nao se altera."
+                    )
+                valores = [None, None, None, corpo, rodape, original, idioma, obra, locus,
+                           edicao, selo, podio, nivel, url, str(conf) if conf else "",
+                           None, HOJE, obs]
+                for i, v in enumerate(valores):
+                    if v is not None:
+                        row[i].value = v
+                return True
+        raise SystemExit(f"FALHA: vaga {num}/{ordem} nao encontrada em CITACOES")
+
     # ---------- aba AUDITORIA_96 ----------
     def auditoria(self, num, veredito, selo, prova, substituta, prioridade):
         """Atualiza a linha existente do expoente (a frase antiga ja esta la)."""

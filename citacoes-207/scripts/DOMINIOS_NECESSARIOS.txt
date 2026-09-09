@@ -66,3 +66,27 @@ en.wikipedia.org
 pt.wikipedia.org
 plato.stanford.edu
 www.britannica.com
+
+# ============================================================================
+# MEDICAO 2026-09-09 (sessao remota): o bloqueio acima CONTINUA de pe para
+# curl e WebFetch. O lote foi destravado por outra porta, nao pela liberacao
+# destes hosts. Ver a subsecao "Como recuperar texto primario neste ambiente"
+# na secao 5 do CLAUDE.md, e scripts/fonte.py.
+#
+# Hosts que PASSAM (medidos nesta sessao):
+#   github.com                    (git ls-remote / clone)
+#   raw.githubusercontent.com     (arquivo cru, HTTP 200)
+#   pypi.org, files.pythonhosted.org, registry.npmjs.org
+#
+# Corpora alcancaveis por essa porta:
+#   PerseusDL/canonical-greekLit      TEI, marcos Stephanus/Bekker
+#   PerseusDL/canonical-latinLit      TEI, marcos livro/capitulo/secao
+#   OpenGreekAndLatin/First1KGreek    grego alem do nucleo Perseus
+#
+# Sondados e SEM acesso: GITenberg, standardebooks, espelhos de Wikisource,
+# dumps.wikimedia.org, huggingface.co.
+#
+# Portanto continuam sem rota de prova primaria: vernaculo moderno (o italiano
+# de Galileu), arquivos de discurso (Hansard), Founders Online, Einstein
+# Papers, Darwin Project. Autor que dependa so deles fica em vaga aberta.
+# ============================================================================

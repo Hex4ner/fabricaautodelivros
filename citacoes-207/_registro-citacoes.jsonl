@@ -1,4 +1,4 @@
 {"chave": "abraham-lincoln::livre", "autor": "Abraham Lincoln", "data": "2026-08-19", "modo": "AUDITORIA+BUSCA", "fechadas": 3, "meta": 3, "status": "FECHADO"}
 {"chave": "galileu-galilei::livre", "autor": "Galileu Galilei", "data": "2026-08-19", "modo": "AUDITORIA+BUSCA", "fechadas": 1, "meta": 3, "status": "EM ANDAMENTO", "apocrifas": 1}
-{"chave": "socrates::livre", "autor": "Sócrates", "data": "2026-08-19", "modo": "AUDITORIA+BUSCA", "fechadas": 1, "meta": 3, "status": "EM ANDAMENTO", "teto": "CONTEMPORÂNEA"}
+{"chave": "socrates::livre", "autor": "Sócrates", "data": "2026-09-09", "modo": "AUDITORIA+BUSCA", "fechadas": 3, "meta": 3, "status": "FECHADO", "teto": "CONTEMPORÂNEA", "lote": 1}
 {"chave": "winston-churchill::livre", "autor": "Winston Churchill", "data": "2026-08-19", "modo": "AUDITORIA+BUSCA", "fechadas": 1, "meta": 3, "status": "EM ANDAMENTO"}

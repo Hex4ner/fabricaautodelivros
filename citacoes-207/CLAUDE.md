@@ -15,8 +15,12 @@ citacoes-207/
 │   └── OURO_V02_96nomes_52ferramentas.xlsx    (as 96 frases sem fonte, aba Fusão Completa)
 ├── saida/
 │   └── CITACOES_207_vNN.xlsx        (a planilha mestre; NN cresce a cada lote)
+├── fontes/                          (cache dos TEI baixados; reproduzível, fora do git)
 └── scripts/
-    └── trava.py                     (checagem mecânica anti-invenção)
+    ├── fonte.py                     (recupera texto primário por locus canônico)
+    ├── lote_helper.py               (escrita na planilha, sempre por código)
+    ├── trava.py                     (checagem mecânica anti-invenção)
+    └── DOMINIOS_NECESSARIOS.txt     (o que a rede alcança e o que não alcança)
 ```
 
 ## Comando de lote (é isto que se digita a cada sessão)
@@ -184,6 +188,40 @@ trecho + "earliest" ou data anterior à morte.
 **Nunca comece por "melhores frases de X".** Essa busca devolve o esgoto dos agregadores. Para achar
 as mais famosas de alguém: antologia de referência + literatura crítica sobre o autor + as passagens
 que a própria erudição trata como célebres.
+
+### Como recuperar texto primário neste ambiente (a via que funciona)
+
+O egresso desta máquina bloqueia Perseus, Wikisource, Gutenberg, Internet Archive, Hansard e
+quase todo o resto da lista abaixo: `curl` e `WebFetch` voltam `EGRESS_BLOCKED`. Foi isso que
+parou o lote 1. **A regra não afrouxou, a porta mudou.**
+
+Os mesmos textos que o Perseus serve são mantidos em repositório público versionado, em TEI XML,
+com os marcos canônicos (Stephanus, Bekker, livro/capítulo) codificados como `<milestone>`. O
+acesso git a esses repositórios passa. Use `scripts/fonte.py`:
+
+```bash
+python scripts/fonte.py tlg0059.tlg002.perseus-grc2 21d      # passagem por locus
+python scripts/fonte.py tlg0059.tlg002.perseus-grc2 --lista  # marcos disponíveis
+python scripts/fonte.py tlg0059.tlg002.perseus-grc2 --buscar "οὐκ οἶδα"
+```
+
+Ele devolve o texto verbatim e a URL de prova fixada em um commit imutável, que é o que entra na
+coluna `Fonte recuperada (URL)`. Vale `N1`: texto da própria obra em repositório crítico, com o
+locus visível no arquivo. O locus é **lido do marco**, nunca deduzido por contagem de página.
+
+**O que esta via cobre:** grego e latim clássicos (`PerseusDL/canonical-greekLit`,
+`canonical-latinLit`, `OpenGreekAndLatin/First1KGreek`). Platão, Aristóteles, Marco Aurélio,
+Sêneca, Cícero, Epicteto, Arquimedes, Heron, os historiadores.
+
+**O que ela não cobre:** vernáculo moderno e arquivos de discurso. Italiano de Galileu, Hansard
+de Churchill, Founders Online, Einstein Papers e Darwin Project seguem inalcançáveis, sem
+espelho em git encontrado. Autor que dependa só deles **fica em vaga aberta com o candidato
+nomeado**, como manda a §7. Não se preenche com o que a busca web resumiu.
+
+**`WebSearch` responde, e é armadilha.** O que ela devolve é resumo escrito por um modelo, não a
+página. Serve de pista (achar o locus provável, farejar apócrifa, descobrir que repositório tem a
+obra) e **nunca de texto recuperado**: colar o original a partir dela é exatamente a reconstrução
+de memória que a §1 proíbe, com o agravante de parecer recuperação.
 
 ### Repositórios que costumam resolver
 
