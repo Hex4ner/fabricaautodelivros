@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Dura Vida dos Ditadores — Infográfico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#F7F5EF; --card:#FFFFFF; --ink:#12181D; --ink2:#3D474F; --mut:#7C858C;
+  --hi:#FFD43A; --hibg:#FFF3C4; --money:#1F9D63; --red:#DE4A32; --line:#D9D5CC;
+  --hand:'Caveat',cursive; --disp:'Anton',sans-serif; --body:'Space Grotesk',sans-serif;
+  /* moldura "desenhada à mão" */
+  --wob:255px 18px 230px 18px/18px 230px 18px 255px;
+}
+body{background:var(--paper); color:var(--ink); font-family:var(--body); font-size:15px; line-height:1.5;
+  background-image:radial-gradient(circle at 1px 1px, rgba(18,24,29,.045) 1px, transparent 0); background-size:26px 26px}
+.page{max-width:880px; margin:0 auto; padding:40px 26px 70px}
+
+/* ---------- cabeçalho ---------- */
+.kicker{font-family:var(--hand); font-size:24px; color:var(--ink2); transform:rotate(-1.4deg); display:inline-block}
+h1{font-family:var(--disp); font-size:clamp(38px,7vw,62px); line-height:.98; text-transform:uppercase; letter-spacing:.5px; margin:6px 0 14px}
+h1 .hl{background:linear-gradient(120deg, transparent 4%, var(--hi) 4%, var(--hi) 96%, transparent 96%); padding:0 8px}
+.sub{max-width:620px; color:var(--ink2); font-size:16px}
+.sub b{font-weight:700}
+.goal{display:inline-flex; align-items:center; gap:12px; margin-top:22px; background:var(--ink); color:#fff;
+  border-radius:var(--wob); padding:14px 22px; transform:rotate(-.6deg)}
+.goal .flag{font-family:var(--hand); font-size:20px; color:var(--hi)}
+.goal .g{font-family:var(--disp); font-size:19px; letter-spacing:.6px; text-transform:uppercase}
+
+/* ---------- trilho + passos ---------- */
+.trail{position:relative; margin-top:46px; padding-left:64px}
+.trail::before{content:''; position:absolute; left:26px; top:8px; bottom:8px; width:5px;
+  background:var(--ink); border-radius:4px; transform:rotate(.15deg)}
+.step{position:relative; margin-bottom:30px; break-inside:avoid}
+.node{position:absolute; left:-64px; top:2px; width:56px; height:56px; background:var(--hi); color:var(--ink);
+  border:3px solid var(--ink); border-radius:50% 46% 52% 48%/48% 52% 46% 52%;
+  display:flex; align-items:center; justify-content:center; font-family:var(--disp); font-size:24px; z-index:2}
+.card{background:var(--card); border:3px solid var(--ink); border-radius:var(--wob); padding:20px 24px 18px;
+  box-shadow:5px 6px 0 rgba(18,24,29,.14); position:relative}
+.eyebrow{font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--mut); font-weight:700}
+h2{font-family:var(--disp); font-size:24px; text-transform:uppercase; letter-spacing:.4px; margin:3px 0 10px}
+h2 em{font-style:normal; box-shadow:inset 0 -12px 0 var(--hibg)}
+.card p{color:var(--ink2); margin-bottom:8px}
+.card p b{color:var(--ink); font-weight:700}
+.rule{font-family:var(--hand); font-size:21px; color:var(--ink); background:var(--hibg);
+  display:inline-block; padding:2px 12px; transform:rotate(-.8deg); border-radius:8px; margin-top:4px}
+.badge{position:absolute; top:-16px; right:18px; font-family:var(--hand); font-size:22px; font-weight:700;
+  background:var(--ink); color:var(--hi); padding:4px 14px 6px; border-radius:12px 14px 12px 16px; transform:rotate(2deg)}
+.next{display:flex; align-items:center; gap:9px; margin-top:12px; padding-top:11px; border-top:2px dashed var(--line);
+  font-size:13.5px; color:var(--ink2)}
+.next .arw{font-family:var(--hand); font-size:22px; color:var(--money); font-weight:700; line-height:1}
+.next b{color:var(--money)}
+
+/* ---------- matriz 2×2 ---------- */
+.matrix-wrap{margin:6px 0 30px; padding-left:0}
+.matrix-card{background:var(--ink); color:#fff; border-radius:var(--wob); padding:26px 26px 22px; transform:rotate(-.4deg);
+  box-shadow:6px 7px 0 rgba(18,24,29,.18)}
+.matrix-card .mt{font-family:var(--hand); font-size:26px; color:var(--hi); margin-bottom:4px}
+.matrix-card .ms{font-size:14px; color:#C7CDD2; max-width:560px; margin-bottom:18px}
+.mgrid{display:grid; grid-template-columns:88px 1fr 1fr; grid-template-rows:auto 1fr 1fr; gap:8px; max-width:600px}
+.mlab{display:flex; align-items:center; justify-content:center; font-size:11px; letter-spacing:.12em;
+  text-transform:uppercase; color:#AEB6BC; text-align:center; font-weight:700; padding:4px}
+.mlab.side{writing-mode:vertical-rl; transform:rotate(180deg)}
+.q{border:2.5px dashed rgba(255,255,255,.45); border-radius:14px 18px 14px 20px; padding:14px 14px 12px; min-height:96px}
+.q .qn{display:inline-block; font-family:var(--disp); font-size:14px; background:var(--hi); color:var(--ink);
+  border-radius:50%; width:26px; height:26px; text-align:center; line-height:26px; margin-bottom:7px}
+.q h3{font-family:var(--disp); font-size:15.5px; text-transform:uppercase; letter-spacing:.4px; color:#fff}
+.q p{font-size:12.5px; color:#C7CDD2; margin-top:3px}
+.q.later{opacity:.92}
+.q.later .qn{background:#fff}
+
+/* ---------- regime + chegada ---------- */
+.regime{margin:8px 0 30px}
+.regime .card{background:var(--hibg)}
+.regime h2{font-size:20px}
+.rgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:6px}
+.rg{border-top:3px solid var(--ink); padding-top:9px}
+.rg .rn{font-family:var(--hand); font-size:24px; font-weight:700}
+.rg p{font-size:13px; color:var(--ink2); margin-top:2px}
+.finish{position:relative; padding-left:64px}
+.finish .node{background:var(--money); color:#fff; font-size:26px}
+.finish .card{background:var(--ink); color:#fff; border-color:var(--ink)}
+.finish h2{color:#fff; font-size:26px}
+.finish h2 em{box-shadow:inset 0 -12px 0 rgba(31,157,99,.55)}
+.finish p{color:#C7CDD2}
+.finish .rule{background:rgba(255,212,58,.16); color:var(--hi)}
+.foot{margin-top:40px; font-size:12px; color:var(--mut); border-top:1px solid var(--line); padding-top:12px; line-height:1.6}
+
+@media (max-width:640px){
+  .trail{padding-left:48px}
+  .trail::before{left:18px}
+  .node{left:-48px; width:42px; height:42px; font-size:18px}
+  .rgrid{grid-template-columns:1fr}
+  .mgrid{grid-template-columns:56px 1fr 1fr}
+  .badge{position:static; display:inline-block; margin-bottom:8px}
+}
+@media print{
+  body{background:#fff}
+  .card,.matrix-card{box-shadow:none}
+  .step,.matrix-wrap,.regime,.finish{break-inside:avoid}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <span class="kicker">o vocabulário do ditador…</span>
+  <h1>Da humilhação à <span class="hl">queda inevitável</span></h1>
+  <p class="sub"><b>A Dura Vida dos Ditadores — Simone Guida (Faro Editorial, 2024).</b> O livro monta um "vocabulário do ditador": seis eixos que se repetem de tirano a tirano, de Hitler a qualquer outro nome que a história ainda vai escrever. Reconhecer o padrão cedo é a primeira dose da vacina — antes que a troca de liberdade por segurança deixe de ser reversível.</p>
+  <div class="goal"><span class="flag">meta ➔</span><span class="g">nomear o padrão cedo: a vacina contra trocar liberdade por segurança</span></div>
+
+  <div class="trail">
+
+    <div class="step">
+      <div class="node">1</div>
+      <div class="card">
+        <span class="eyebrow">Eixo 1 · Formação</span>
+        <h2>A fábrica da <em>humilhação</em></h2>
+        <p>O livro assume a infância como ponto de partida — cita <b>Hitler</b>, criado num lar abusivo, como exemplo recorrente. O fio condutor é uma humilhação precoce, familiar, social ou nacional, que se converte em <b>apetite por controle absoluto</b> quando encontra outras vulnerabilidades psicológicas.</p>
+        <p>Não é causa suficiente — a maioria das pessoas humilhadas não vira ditador —, mas é um ingrediente recorrente. A <b>psicopatologia do ditador</b> não é uma doença isolável: é o encontro entre traço de personalidade e oportunidade histórica.</p>
+        <div class="rule">a psicologia do ditador não nasce pronta na tomada do poder — ela é formada muito antes, num terreno de ressentimento</div>
+        <div class="next"><span class="arw">➔</span><span>Libera o próximo nível: <b>uma crise real ou fabricada aparece e oferece a esse ressentimento um palco político para agir.</b></span></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="node">2</div>
+      <div class="card">
+        <span class="eyebrow">Eixo 2 · Ascensão</span>
+        <h2>A crise vira <em>matéria-prima</em></h2>
+        <p>Ditadores raramente tomam o poder contra uma sociedade estável — eles emergem de <b>crises reais ou fabricadas</b> (econômicas, militares, sociais), oferecendo-se como a solução de ordem que a incerteza torna desejável.</p>
+        <p>A promessa de segurança é a moeda de troca mais eficaz pela qual populações cedem liberdade — e essa troca costuma parecer <b>racional no momento em que é feita</b>. O erro só fica visível depois, quando já não é mais reversível.</p>
+        <div class="rule">a promessa de ordem parece racional exatamente no instante em que deixa de ser reversível</div>
+        <div class="next"><span class="arw">➔</span><span>Libera o próximo nível: <b>a crise (real ou fabricada) chega, a população troca liberdade por promessa de ordem — e o poder recém-tomado só sobrevive se for mantido.</b></span></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="node">3</div>
+      <div class="card">
+        <span class="eyebrow">Eixo 3 · Manutenção do poder — o órgão central</span>
+        <h2>Lealdade tem <em>preço</em></h2>
+        <p>O eixo de maior densidade do livro. <b>Controle centralizado da informação</b> — quem fala, o que pode ser dito, o que é verdade oficial — precede e sustenta todos os outros instrumentos: sem ele, a violência física sozinha é cara e instável.</p>
+        <p><b>Purgas periódicas</b> dentro do próprio círculo de poder mantêm todos em insegurança calculada, o que aumenta a lealdade de curto prazo às custas da qualidade da informação que chega ao topo. O <b>culto de personalidade</b> substitui legitimidade institucional por devoção pessoal — e por isso é mais frágil do que aparenta.</p>
+        <div class="rule">regimes não se sustentam só pela força bruta — eles tornam a deslealdade psicologicamente mais cara do que a lealdade</div>
+        <div class="next"><span class="arw">➔</span><span>Libera o próximo nível: <b>o aparato de vigilância e controle de informação está de pé — e desce até o súdito comum, que passa a se policiar sozinho.</b></span></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="node">4</div>
+      <div class="card">
+        <span class="eyebrow">Eixo 4 · Vida sob a ditadura</span>
+        <h2>O medo que ninguém <em>precisa ver</em></h2>
+        <p>Como é, de fato, a vida sob uma ditadura? O livro desce ao súdito comum. O mecanismo é a <b>autocensura antecipatória</b>: a população não precisa ser vigiada de fato para se comportar como se estivesse sendo — basta a incerteza sobre quem observa.</p>
+        <p>A <b>confiança horizontal</b> entre cidadãos comuns é um dos primeiros recursos corroídos: o regime se beneficia de vizinhos que não confiam uns nos outros.</p>
+        <div class="rule">não precisa vigiar todo mundo — basta que ninguém saiba quem está sendo vigiado</div>
+        <div class="next"><span class="arw">➔</span><span>Libera o próximo nível: <b>o mesmo culto de personalidade que sustenta o regime depende de manutenção contínua de imagem — e é aí que as manias e vaidades pessoais do líder entram na engrenagem.</b></span></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="node">5</div>
+      <div class="card">
+        <span class="eyebrow">Eixo 5 · Excentricidades e manias</span>
+        <h2>Vaidade vira <em>estratégia</em></h2>
+        <p>O tom mais assumidamente irônico do livro: <b>vaidades pessoais, paranoias domésticas, rituais supersticiosos</b> de homens que, ao mesmo tempo, comandavam aparatos de repressão em escala nacional.</p>
+        <p>O contraste entre a pequenez das manias reveladas e a magnitude do poder exercido é, em si, parte do argumento do livro contra o <b>mito da grandeza excepcional</b> do tirano — poder concentrado amplifica traços humanos comuns, não revela superioridade nenhuma.</p>
+        <div class="rule">poder concentrado só amplifica traços humanos comuns — não revela grandeza nenhuma</div>
+        <div class="next"><span class="arw">➔</span><span>Libera o próximo nível: <b>o culto de personalidade é frágil por definição — depende da imagem se manter intacta, não de uma base institucional. Basta a imagem rachar.</b></span></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="node">6</div>
+      <div class="card">
+        <span class="eyebrow">Eixo 6 · Queda</span>
+        <h2>A conta chega <em>sempre</em></h2>
+        <p>O fechamento do arco, e a ironia do título: a vida <b>dura</b> é também a do próprio ditador. Em geral termina em <b>morte violenta, exílio humilhante ou julgamento público</b> — raramente na imagem de invencibilidade cultivada em vida.</p>
+        <p>O custo de manter poder por meios ilegítimos tende a ser pago, ainda que com décadas de atraso. É o eixo que devolve ao leitor a promessa implícita de "vacina": reconhecer que nenhum desses regimes provou ser, de fato, permanente.</p>
+        <div class="rule">nenhum poder concentrado por meios ilegítimos provou ser, de fato, permanente — o custo chega, ainda que atrasado</div>
+        <div class="next"><span class="arw">➔</span><span>Resultado: <b>a queda fecha o arco, mas o valor real da vacina estava lá atrás — no eixo 2, no instante em que a troca liberdade-por-segurança ainda era reversível.</b></span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="regime">
+    <div class="card">
+      <span class="eyebrow">Válido em todos os níveis</span>
+      <h2>O regime <em>permanente</em></h2>
+      <div class="rgrid">
+        <div class="rg"><div class="rn">Informação primeiro</div><p>O controle da informação precede e sustenta todo o resto — sem ele, a violência física sozinha é cara e instável.</p></div>
+        <div class="rg"><div class="rn">Deslealdade cara</div><p>A deslealdade precisa custar mais caro, psicologicamente, do que a lealdade — mesmo quando a lealdade é objetivamente perigosa.</p></div>
+        <div class="rg"><div class="rn">Nada é permanente</div><p>Nenhum poder concentrado, historicamente, provou ser de fato permanente — o atraso na conta não muda o resultado.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="finish">
+    <div class="step">
+      <div class="node">🏁</div>
+      <div class="card">
+        <span class="eyebrow" style="color:#9AA3AA">A chegada · depois do eixo 6</span>
+        <h2>A vacina é <em>reconhecer cedo</em></h2>
+        <p>Nomear o padrão — formação, ascensão, manutenção, queda — tira o ditador do território do incompreensível e devolve a quem lê a capacidade de agir enquanto a troca liberdade-por-segurança ainda é reversível. Não é consolo tardio: é prevenção.</p>
+        <div class="rule">nomeado, o padrão perde o poder de paralisar — e a hora de agir é enquanto a troca ainda é reversível</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="foot">Sequência fiel aos seis eixos temáticos do relatório de leitura de <i>A Dura Vida dos Ditadores</i> — Simone Guida (Faro Editorial, 2024; edição original <i>La dura vita del dittatore</i>, Gribaudo, 2022); síntese fabricada a partir do relatório completo da fabrica-auto-de-livros, rodada em Modo B (busca ativa na web, sem PDF anexado da obra) — selo predominante <b>[CONVERGENTE]</b> em toda a fábrica, nunca [FONTE-PRIMÁRIA]. Vault Hexaner · 2026-09-10.</p>
+
+</div>
+</body>
+</html>
